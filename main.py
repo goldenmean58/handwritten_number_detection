@@ -12,16 +12,23 @@ import matplotlib.pyplot as plt
 # Importing the required Keras modules containing model and layers
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
+import numpy
+import paint
 
 
-def detect(index: int) -> int:
+def detect_img(array: numpy.ndarray, weight: int = 28,
+               height: int = 28) -> int:
     if not os.path.exists("my_model.h5"):
         compile_fit()
     model = tf.keras.models.load_model('my_model.h5')
+    pred = model.predict(array.reshape(1, weight, height, 1))
+    return int(pred.argmax())
+
+
+def detect_mnist(image_index: int = 0) -> int:
     plt.imshow(x_test[image_index].reshape(28, 28), cmap='Greys')
     plt.show()
-    pred = model.predict(x_test[image_index].reshape(1, 28, 28, 1))
-    print("The number is " + str(pred.argmax()))
+    print("The number is " + str(detect_img(x_test[image_index])))
 
 
 def compile_fit():
@@ -43,9 +50,10 @@ def compile_fit():
 
 def menu() -> int:
     print('Menu:')
-    print('1:Detect handwritten number.')
+    print('1:Detect handwritten number in mnist databases.')
     print('2:Practise model.')
-    print('3:Exit.')
+    print('3:Draw and detect your hand written number.')
+    print('4:Exit.')
     return int(input('Choice: '))
 
 
@@ -67,9 +75,11 @@ if __name__ == '__main__':
     choice = menu()
     if choice == 1:
         image_index = int(input("index(0-9999):"))
-        detect(image_index)
+        detect_mnist(image_index)
     elif choice == 2:
         compile_fit()
+    elif choice == 3:
+        paint.main()
     else:
         print('Bye!')
         exit(0)
