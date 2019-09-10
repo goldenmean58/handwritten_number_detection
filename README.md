@@ -4,6 +4,7 @@ Detect the handwritten number with Tensorflow Keras datasets API and mnist datab
 # Installation
 1. Install python3.7.4
 2. Install requirements(tensorflow==1.14.0, Keras==2.2.5, matplotlib==3.1.1)
+
 	Run `pip install -r requirements.txt --user` in the direction
 
 # Usage
