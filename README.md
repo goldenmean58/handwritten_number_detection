@@ -5,7 +5,7 @@ Detect the handwritten number with Tensorflow Keras datasets API and mnist datab
 1. Install python3.7.4
 2. Install requirements(tensorflow==1.14.0, Keras==2.2.5, matplotlib==3.1.1)
 
-	Run `pip install -r requirements.txt --user` in the direction
+	Run `pip install -r requirements.txt --user` in the directory
 
 # Usage
 1. Run the python script `python3 main.py`. It will download mnist databases automatically.
