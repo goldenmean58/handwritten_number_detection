@@ -9,7 +9,7 @@ Detect the handwritten number with Tensorflow Keras datasets API and mnist datab
 
 # Usage
 1. Run the python script `python3 main.py`. It will download mnist databases automatically.
-2. It will prompt a menu with three options, and then you can detect the handwritten numbers in the mnist databases with 10000 pictures for test. Or practise your own model.
+2. It will prompt a menu with three options, and then you can detect the handwritten numbers in the mnist databases with 10000 pictures for test. Or compile and fit your own model.
 
 # Note
-1. The practised model is named as `my_model.h5`, and I had finished a model for you, so you can run detection directly.
+1. The fitted model is named as `my_model.h5`, and I had finished a model for you, so you can run detection directly.

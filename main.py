@@ -16,7 +16,7 @@ from keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
 
 def detect(index: int) -> int:
     if not os.path.exists("my_model.h5"):
-        practise()
+        compile_fit()
     model = tf.keras.models.load_model('my_model.h5')
     plt.imshow(x_test[image_index].reshape(28, 28), cmap='Greys')
     plt.show()
@@ -24,7 +24,7 @@ def detect(index: int) -> int:
     print("The number is " + str(pred.argmax()))
 
 
-def practise():
+def compile_fit():
     # Creating a Sequential Model and adding the layers
     model = Sequential()
     model.add(Conv2D(28, kernel_size=(3, 3), input_shape=input_shape))
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         image_index = int(input("index(0-9999):"))
         detect(image_index)
     elif choice == 2:
-        practise()
+        compile_fit()
     else:
         print('Bye!')
         exit(0)
